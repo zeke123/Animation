@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -25,6 +26,8 @@ public class MainActivity extends Activity {
     Button mStartOne;
     @InjectView(R.id.start_two)
     Button mStartTwo;
+    @InjectView(R.id.start_three)
+    Button mStartThree;
     private Animation mAnimation;
 
 
@@ -80,16 +83,14 @@ public class MainActivity extends Activity {
         });
 
         //缩放动画
-        mStartTwo.setOnClickListener(new View.OnClickListener()
-        {
+        mStartTwo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 //mAnimation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.scale_animation);
                 //mImg.startAnimation(mAnimation);
 
 
-                ScaleAnimation animation = new ScaleAnimation(1,2,1,2,
+                ScaleAnimation animation = new ScaleAnimation(1, 2, 1, 2,
                         RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
                 //不停顿
                 animation.setInterpolator(new LinearInterpolator());
@@ -100,6 +101,26 @@ public class MainActivity extends Activity {
                 //开启动画
                 mImg.startAnimation(animation);
 
+            }
+        });
+
+
+        mStartThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               // mAnimation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.translate_animation);
+               // mImg.startAnimation(mAnimation);
+
+                TranslateAnimation animation = new TranslateAnimation(0,100,0,0);
+                //不停顿
+                animation.setInterpolator(new LinearInterpolator());
+                //重复次数
+                animation.setRepeatCount(1);
+                animation.setFillAfter(true);
+                animation.setDuration(2000);
+                //开启动画
+                mImg.startAnimation(animation);
             }
         });
     }
