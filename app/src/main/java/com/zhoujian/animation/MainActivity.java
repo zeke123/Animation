@@ -1,6 +1,7 @@
 package com.zhoujian.animation;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -28,6 +29,8 @@ public class MainActivity extends Activity {
     Button mStartTwo;
     @InjectView(R.id.start_three)
     Button mStartThree;
+    @InjectView(R.id.start_four)
+    Button mStartFour;
     private Animation mAnimation;
 
 
@@ -89,7 +92,6 @@ public class MainActivity extends Activity {
                 //mAnimation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.scale_animation);
                 //mImg.startAnimation(mAnimation);
 
-
                 ScaleAnimation animation = new ScaleAnimation(1, 2, 1, 2,
                         RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
                 //不停顿
@@ -105,14 +107,15 @@ public class MainActivity extends Activity {
         });
 
 
+        //位移动画
         mStartThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-               // mAnimation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.translate_animation);
-               // mImg.startAnimation(mAnimation);
+                // mAnimation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.translate_animation);
+                // mImg.startAnimation(mAnimation);
 
-                TranslateAnimation animation = new TranslateAnimation(0,100,0,0);
+                TranslateAnimation animation = new TranslateAnimation(0, 100, 0, 0);
                 //不停顿
                 animation.setInterpolator(new LinearInterpolator());
                 //重复次数
@@ -121,6 +124,15 @@ public class MainActivity extends Activity {
                 animation.setDuration(2000);
                 //开启动画
                 mImg.startAnimation(animation);
+            }
+        });
+
+
+
+        mStartFour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SecondActivity.class));
             }
         });
     }
