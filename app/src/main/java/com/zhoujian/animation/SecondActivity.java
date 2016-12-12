@@ -56,9 +56,6 @@ public class SecondActivity extends Activity {
                 overridePendingTransition(R.anim.enter_anim,R.anim.exit_anim);
             }
         });
-
-
-
     }
 
     @Override
