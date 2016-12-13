@@ -13,12 +13,13 @@ import butterknife.InjectView;
 
 
 /**
- * Created by zhoujian on 2016/12/13.
- * <p>
- * 属性动画：是API11新加入的特性，可以对任意对象的属性进行动画，动画默认时间间隔为300ms
- * 默认帧率为10ms/帧，API11以后才能使用帧动画，如果要兼容以前的版本可以使用开源动画库
- * nineoldandroids
- * ObjectAnimator
+
+ Created by zhoujian on 2016/12/13.
+ 属性动画：是API11新加入的特性，可以对任意对象的属性进行动画，动画默认时间间隔为300ms
+ 默认帧率为10ms/帧，API11以后才能使用帧动画，如果要兼容以前的版本可以使用开源动画库
+ nineoldandroids
+ ObjectAnimator
+
  */
 
 public class FouthActivity extends Activity
@@ -70,7 +71,6 @@ public class FouthActivity extends Activity
                 //把mImg 绕y轴旋转，从0度开始到90度，然后在返回0度，动画用时3秒
                 //ObjectAnimator.ofFloat(mImg,"rotationY",0,90,0).setDuration(3000).start();
 
-
                 //平移动画
                 //把mImg 沿着x轴方向，从原始位置移动100像素，然后从100像素的位置返回原处，动画用时3秒
                 //ObjectAnimator.ofFloat(mImg,"translationX",0,100,100,0).setDuration(3000).start();
@@ -82,16 +82,14 @@ public class FouthActivity extends Activity
                 //ObjectAnimator.ofFloat(mImg, "scaleX", 1, 2,2,1).setDuration(3000).start();
                 //把mImg 沿着y轴方向，从原始大小，扩大到原来的一倍，然后再返回原始大小，动画用时3秒
                 ObjectAnimator.ofFloat(mImg, "scaleY", 1, 2, 2, 1).setDuration(3000).start();
-
-
             }
         });
 
 
         mBtStarto.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View view)
+            {
                 ValueAnimator mValueAnimator = ValueAnimator.ofInt(1, 200);
                 mValueAnimator.setDuration(2000);
                 mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -106,7 +104,6 @@ public class FouthActivity extends Activity
                 mValueAnimator.start();
             }
         });
-
     }
 
     @Override
@@ -138,5 +135,4 @@ public class FouthActivity extends Activity
     protected void onDestroy() {
         super.onDestroy();
     }
-
 }
