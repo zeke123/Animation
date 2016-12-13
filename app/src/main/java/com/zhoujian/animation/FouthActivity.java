@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import static com.zhoujian.animation.R.id.img;
 
 /**
  * Created by zhoujian on 2016/12/13.
@@ -22,17 +21,17 @@ import static com.zhoujian.animation.R.id.img;
  * ObjectAnimator
  */
 
-public class FouthActivity extends Activity {
+public class FouthActivity extends Activity
+{
 
+    private static final String TAG = "FouthActivity";
 
-    private static final String TAG ="FouthActivity";
-
-    @InjectView(img)
-    ImageView mImg;
     @InjectView(R.id.bt_start)
     Button mBtStart;
     @InjectView(R.id.bt_starto)
     Button mBtStarto;
+    @InjectView(R.id.img)
+    ImageView mImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +77,6 @@ public class FouthActivity extends Activity {
                 //把mImg 沿着y轴方向，从原始位置移动-100像素，然后从-100像素的位置返回原处，动画用时3秒
                 //ObjectAnimator.ofFloat(mImg,"translationY",0,-100,-100,0).setDuration(3000).start();
 
-
                 //缩放动画
                 //把mImg 沿着x轴方向，从原始大小，扩大到原来的一倍，然后再返回原始大小，动画用时3秒
                 //ObjectAnimator.ofFloat(mImg, "scaleX", 1, 2,2,1).setDuration(3000).start();
@@ -90,21 +88,18 @@ public class FouthActivity extends Activity {
         });
 
 
-
         mBtStarto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                ValueAnimator mValueAnimator =ValueAnimator.ofInt(1,200);
+                ValueAnimator mValueAnimator = ValueAnimator.ofInt(1, 200);
                 mValueAnimator.setDuration(2000);
-                mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener()
-                {
+                mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
-                    public void onAnimationUpdate(ValueAnimator animator)
-                    {
-                        int value = (int)animator.getAnimatedValue();
-                        mImg.layout(value,value,value+mImg.getWidth(),value+mImg.getHeight());
-                        Log.e(TAG,"value==="+ value);
+                    public void onAnimationUpdate(ValueAnimator animator) {
+                        int value = (int) animator.getAnimatedValue();
+                        mImg.layout(value, value, value + mImg.getWidth(), value + mImg.getHeight());
+                        Log.e(TAG, "value===" + value);
                     }
                 });
 
