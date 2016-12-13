@@ -20,6 +20,8 @@
 
         <activity android:name=".ThiredActivity"/>
 
+        <activity android:name=".FouthActivity"/>
+
     </application>
 
 </manifest>

@@ -19,6 +19,8 @@ public class SecondActivity extends Activity {
 
     @InjectView(R.id.bt_start)
     Button mBtStart;
+    @InjectView(R.id.bt_starto)
+    Button mBtStarto;
     private AnimationDrawable mAnimationDrawable;
     @InjectView(R.id.loading)
     ImageView mLodding;
@@ -34,6 +36,7 @@ public class SecondActivity extends Activity {
         ButterKnife.inject(this);
         mAnimationDrawable = (AnimationDrawable) mLodding.getDrawable();
         clickEvent();
+
     }
 
     private void clickEvent() {
@@ -52,8 +55,18 @@ public class SecondActivity extends Activity {
         mBtStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SecondActivity.this,ThiredActivity.class));
-                overridePendingTransition(R.anim.enter_anim,R.anim.exit_anim);
+                startActivity(new Intent(SecondActivity.this, ThiredActivity.class));
+                overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim);
+            }
+        });
+
+
+
+        mBtStarto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SecondActivity.this, FouthActivity.class));
+                overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim);
             }
         });
     }
